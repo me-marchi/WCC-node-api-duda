@@ -5,7 +5,7 @@ const app = express();
 //Cria uma aplicação express. A função express() é uma função exportada pelo módulo express 
 
 const port = 8000;
-//Porta padrão 8080
+//Porta padrão é 8080, porém esta não funcionou na minha máquina, tendo que usar a 8000
 
 app.get("/", function(req, res) {
     res.send("Minha primeira requisição");
@@ -27,7 +27,4 @@ app.listen(port, function() {
     console.log("Ouvindo a porta", port);
 });
 //npm run start
-
-
-
 
