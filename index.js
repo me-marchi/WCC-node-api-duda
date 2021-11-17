@@ -1,27 +1,45 @@
 const express = require("express");
-//Preciso do express
-
-const app = express();
-//Cria uma aplicação express. A função express() é uma função exportada pelo módulo express 
-
+const app = express(); 
 const port = 8000;
-//Porta padrão 8080
+
+app.use(express.json());
 
 app.get("/", function(req, res) {
-    res.send("Minha primeira requisição");
+    res.send("Dasa Educa - Artigos");
 });
-//Primeiro parâmetro é a rota (/); segundo parâmetro a função
-//Digitar no navegador http://localhost:8000/
+
 
 app.get("/segunda-req", function(req, res) {
     res.send("Minha segunda requisição");
 });
-//Digitar no navegador http://localhost:8000/segunda-req
 
-app.get("/com-parametros", function(req,res){
+
+app.get("/com-parametros", function(req, res){
+    if (req.query.nome === 'Duda') {
+        res.send("Duda chamou requisição");
+    }
     res.send("Com parâmetros funciona! Sabadou " + req.query.nome);
 });
-//http://localhost:8000/com-parametros/
+
+app.post("/meu-primeiro-post", function (req, res) {
+    console.log(req.body);
+    res.send("Meu post funciona!");
+});
+
+
+app.put("/meu-primeiro-put/:id", function (req, res){
+    console.log(req.body, req.params.id);
+    res.send("Meu put funciona");
+});
+
+
+app.delete("/meu-primeiro-delete/:id", function (req, res){
+    console.log(req.params.id);
+    res.send("Meu delete funciona " + req.params.id);
+});
+
+
+
 
 app.listen(port, function() {
     console.log("Ouvindo a porta", port);
