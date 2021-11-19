@@ -26,3 +26,16 @@ exports.create = (req, res) => {
 //Then: o create cria o artigo, aí então (then) dá a mensagem
 //Catch: caso não tenha criado o artigo, dá o erro de número 500 e a mensagem dizendo que deu erro
 
+exports.findAll = (req, res) => {
+    tabelaArtigos.findAll()
+    .then(function (data) { 
+        res.send(data);
+    })
+    .catch(function () {
+        res.status(500).send("Ocorreu um erro obtendo os artigos");
+    });
+};
+
+//findAll e create são propriedades de um objeto
+//podem ter qualquer nome, assim como uma variável
+//eles estão listados no arquivo artigos.routes, através do get e post e exportados para os outros arquivos para serem utilizados através do exports

@@ -62,16 +62,3 @@ app.listen(port, function() {
 //npm run start
 
 
-
-//artigos Router
-//router.get("/", artigosController)
-
-//app.use("/artigos", router)
-
-//controller
-
-//exports.create = (req, res) => {
-    //const artigo = Artigo.findAll()
-    //.then(() => res.send(data))
-    //.catch(() => res.status(500).send("Ocorreu um erro obtendo os artigos");
-//});
