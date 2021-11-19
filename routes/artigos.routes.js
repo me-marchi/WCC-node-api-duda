@@ -17,3 +17,27 @@ DELETE
 - Deletar um artigo
 */
 
+module.exports = (app) => {
+    const artigosController = require("../controllers/artigos.controller");
+    let router = require("express").Router();
+
+    router.post("/", artigosController.create);
+
+    app.use("/artigos", router);
+
+    
+}
+
+/*
+router.post("/", artigosController.create);
+
+é o mesmo que 
+
+router.post("/", function (req, res) {
+    artigosController.create(req,res);
+});
+
+porém mais resumido
+*/
+
+

@@ -8,37 +8,16 @@ app.get("/", function(req, res) {
     res.send("Dasa Educa - Artigos");
 });
 
+const database = require("./models");
+database.sequelizeDatabase.sync();
+//database.sequelizeDatabase.sync({ force: true}).then(() => {
+//    console.log("Drop and re-sync db");
+//});
 
-app.get("/segunda-req", function(req, res) {
-    res.send("Minha segunda requisição");
-});
+//sync: sincronizar os dados, o force força a sincronizar, mas faz perder tudo que tinha no banco
 
-
-app.get("/com-parametros", function(req, res){
-    if (req.query.nome === 'Duda') {
-        res.send("Duda chamou requisição");
-    }
-    res.send("Com parâmetros funciona! Sabadou " + req.query.nome);
-});
-
-app.post("/meu-primeiro-post", function (req, res) {
-    console.log(req.body);
-    res.send("Meu post funciona!");
-});
-
-
-app.put("/meu-primeiro-put/:id", function (req, res){
-    console.log(req.body, req.params.id);
-    res.send("Meu put funciona");
-});
-
-
-app.delete("/meu-primeiro-delete/:id", function (req, res){
-    console.log(req.params.id);
-    res.send("Meu delete funciona " + req.params.id);
-});
-
-
+const router = require("./routes/artigos.routes");
+router(app);
 
 
 app.listen(port, function() {
