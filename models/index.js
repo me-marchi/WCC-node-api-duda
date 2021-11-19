@@ -12,4 +12,4 @@ const database = {
 const artigosModel = require("./artigos.model.js")
 database.artigos = artigosModel(sequelizeDatabase, Sequelize)
 
-module.exports = database; 
+module.exports = database;

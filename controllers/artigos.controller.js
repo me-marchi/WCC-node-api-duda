@@ -1,4 +1,4 @@
-// regras de negócio do sistema de artigos
+// regras de negócio do sistema de artigos.
 const { request, response } = require("express");
 const database = require("../models"); 
 //Quando se tem um arquivo chamado index.js, você não precisa colocar o nome dele ao chamá-lo em outro arquivo, pois já é padrão do js

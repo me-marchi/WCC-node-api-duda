@@ -14,7 +14,7 @@ database.sequelizeDatabase.sync();
 //    console.log("Drop and re-sync db");
 //});
 
-//sync: sincronizar os dados, o force força a sincronizar, mas faz perder tudo que tinha no banco
+//sync: sincronizar os dados, o force força a sincronizar, mas faz perder tudo que tinha no banco.
 
 const router = require("./routes/artigos.routes");
 router(app);
@@ -24,7 +24,3 @@ app.listen(port, function() {
     console.log("Ouvindo a porta", port);
 });
 //npm run start
-
-
-
-

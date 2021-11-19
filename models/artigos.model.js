@@ -1,5 +1,5 @@
 // model da tabela de artigos
-//título, descrição, publicado
+//título, descrição, publicado.
 
 module.exports = (sequelizeDatabase, Sequelize) => {
     const Artigo = sequelizeDatabase.define("artigos", {

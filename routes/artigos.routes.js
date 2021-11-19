@@ -14,7 +14,7 @@ PUT
 - Editar meu artigo
 
 DELETE
-- Deletar um artigo
+- Deletar um artigo.
 */
 
 module.exports = (app) => {
