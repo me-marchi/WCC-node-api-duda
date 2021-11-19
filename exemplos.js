@@ -1,5 +1,7 @@
+const { Router } = require("express");
 const express = require("express");
 //Preciso do express para criar o servidor, é um módulo que já vem com algumas funções necessárias
+//Como boa prática, as constantes ficam em cima do arquivo
 
 const app = express();
 //Cria uma aplicação express. A função express() é uma função exportada pelo módulo express 
@@ -58,3 +60,18 @@ app.listen(port, function() {
     console.log("Ouvindo a porta", port);
 });
 //npm run start
+
+
+
+//artigos Router
+//router.get("/", artigosController)
+
+//app.use("/artigos", router)
+
+//controller
+
+//exports.create = (req, res) => {
+    //const artigo = Artigo.findAll()
+    //.then(() => res.send(data))
+    //.catch(() => res.status(500).send("Ocorreu um erro obtendo os artigos");
+//});
