@@ -39,3 +39,37 @@ exports.findAll = (req, res) => {
 //findAll e create são propriedades de um objeto
 //podem ter qualquer nome, assim como uma variável
 //eles estão listados no arquivo artigos.routes, através do get e post e exportados para os outros arquivos para serem utilizados através do exports
+
+exports.findByPk = (req, res) => {
+    tabelaArtigos.findByPk(req.query.id)
+    .then(function (user) {
+        if (req.query.id == user.id) {
+            res.send(user);
+        } else {
+            res.status(404).send({message: "Não foi possível encontrar um usuário com o id=" + req.query.id
+            });
+        }
+    }).catch(function () {
+        res.status(500).send({
+            message: "Erro obtendo usuário id=" + req.query.id
+        });
+    });
+};
+
+exports.findOne = (req, res) => {
+    tabelaArtigos.findOne({where: {titulo: req.query.titulo}})
+    .then(function (user) {
+        if (req.query.titulo == user.titulo) {
+            res.send(user);
+        } else {
+            res.status(404).send({message: "Não foi possível encontrar um usuário."
+            });
+        }
+    }).catch(function (error) {
+        console.log(error)
+        res.status(500).send({
+            message: "Erro obtendo usuário"
+        });
+    });
+};
+
