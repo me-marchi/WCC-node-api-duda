@@ -14,7 +14,8 @@ PUT
 - Editar meu artigo
 
 DELETE
-- Deletar um artigo.
+- Deletar um artigo
+- Deletar todos os artigos
 */
 
 module.exports = (app) => {
@@ -28,6 +29,16 @@ module.exports = (app) => {
     router.get("/findByPk", artigosController.findByPk);
 
     router.get("/findOne", artigosController.findOne);
+
+    router.get("/findAllPublished", artigosController.findAllPublished);
+
+    router.put("/:id", artigosController.update);
+
+    router.put("/", artigosController.updateMany);
+
+    router.delete("/:id", artigosController.delete);
+
+    router.delete("/", artigosController.deleteAll);
 
     app.use("/artigos", router);
 }
